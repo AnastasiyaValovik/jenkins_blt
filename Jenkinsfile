@@ -3,14 +3,14 @@ pipeline {
   
   stages {
     
-      stage('Init') {
+      stage('Install npm packages') {
         steps{
-          echo 'Init step...'
+          sh 'npm install'
         }
       }
       stage('Build') {
         steps {
-          echo 'Build step...'
+          sh 'npm cypress run'
         }
       }
   }
