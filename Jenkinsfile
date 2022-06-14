@@ -5,12 +5,7 @@ pipeline {
     
       stage('Install npm packages') {
         steps{
-          sh 'npm install'
-        }
-      }
-      stage('Build') {
-        steps {
-          sh 'npm cypress run'
+          sh 'docker run -it -v $PWD:/e2e -w /e2e cypress/included:9.4.1'
         }
       }
   }
